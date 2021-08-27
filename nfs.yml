@@ -1,15 +1,12 @@
 ---
-tasks:
-- name: Create Policy
-  na_ontap_export_policy:
-    state: present
-    name: "{{ item.name }}"
-    vserver: "{{ item.vserver }}"
-    hostname: "{{ netapp_hostname }}"
-    username: "{{ netapp_username }}"
-    password: "{{ netapp_password }}"
-    https: true
-    validate_certs: "{{ validate_certs }}"
-  with_items:
-    "{{ nas }}"
-  when: item.protocol == "nfs"
+  tasks:
+  - name: Delete Vms
+    vmware_guest:
+      hostname: "{{ list_host }}"
+      user: "{{ vcenter_user }}"
+      password: "{{ vcenter_password }}"
+      validate_certs: False
+      name: "{{ item }}"
+      state: absent
+    delegate_to: localhost
+    with_lines: cat vmname.txt
