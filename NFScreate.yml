@@ -1,6 +1,6 @@
 ---
 - name: vm delete
-  hosts: "{{ list_host }}"
+  hosts: "{{ netapp_hostname }}"
   gather_facts: False
   
   tasks:
