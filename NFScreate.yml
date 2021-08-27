@@ -1,8 +1,4 @@
 ---
-- name: vm delete
-  hosts: "{{ netapp_hostname }}"
-  gather_facts: False
-  
   tasks:
   - name: Create Policy
     na_ontap_export_policy:
