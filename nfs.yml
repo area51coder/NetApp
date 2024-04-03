@@ -6,4 +6,8 @@
   tasks:
   - name: vm delete
     include_role:
+<<<<<<< HEAD
       name: vmdeletetestbranch
+=======
+      name: vmdelete
+>>>>>>> parent of 83348be (testupdate)
